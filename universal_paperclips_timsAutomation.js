@@ -24,14 +24,14 @@ var timsAutomation = {
 			return false;
 		},
 		endPhase2: {
-			farmBtnx1: document.getElementById('btnFarm'),
+			farmBtnx1: document.getElementById('btnMakeFarm'),
 			farmBtnx10: document.getElementById('btnFarmx10'),
 			farmBtn: document.getElementById('btnFarmx100'),
-			wireBtnx1: document.getElementById('btnWireDrone'),
+			wireBtnx1: document.getElementById('btnMakeWireDrone'),
 			wireBtnx10: document.getElementById('btnWireDronex10'),
 			wireBtnx100: document.getElementById('btnWireDronex100'),
 			wireBtn: document.getElementById('btnWireDronex1000'),
-			harvBtnx1: document.getElementById('btnHarvester'),
+			harvBtnx1: document.getElementById('btnMakeHarvester'),
 			harvBtnx10: document.getElementById('btnHarvesterx10'),
 			harvBtnx100: document.getElementById('btnHarvesterx100'),
 			harvBtn: document.getElementById('btnHarvesterx1000'),
