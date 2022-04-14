@@ -127,7 +127,7 @@ var timsAutomation = {
 					}
 				}
 				else if (harvesterLevel < obj.harvTarge) {
-					if (harvBtn.disabled == falset && obj.roundHarv() == true) {
+					if (harvBtn.disabled == false && obj.roundHarv() == true) {
 						harvBtn.onclick();
 					}
 				}
