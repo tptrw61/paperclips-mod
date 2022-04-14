@@ -24,8 +24,16 @@ var timsAutomation = {
 			return false;
 		},
 		endPhase2: {
+			farmBtnx1: document.getElementById('btnFarm'),
+			farmBtnx10: document.getElementById('btnFarmx10'),
 			farmBtn: document.getElementById('btnFarmx100'),
+			wireBtnx1: document.getElementById('btnWireDrone'),
+			wireBtnx10: document.getElementById('btnWireDronex10'),
+			wireBtnx100: document.getElementById('btnWireDronex100'),
 			wireBtn: document.getElementById('btnWireDronex1000'),
+			harvBtnx1: document.getElementById('btnHarvester'),
+			harvBtnx10: document.getElementById('btnHarvesterx10'),
+			harvBtnx100: document.getElementById('btnHarvesterx100'),
 			harvBtn: document.getElementById('btnHarvesterx1000'),
 			facBtn: document.getElementById('btnMakeFactory'),
 			//necessary stuff
@@ -37,16 +45,97 @@ var timsAutomation = {
 			harvTarget: 250000,
 			wireTarget: 250000,
 			factTarget: 200,
+			roundFarm: function() {
+				x1 = timsAutomation.utils.endPhase2.farmBtnx1;
+				x10 = timsAutomation.utils.endPhase2.farmBtnx10;
+				if (farmLevel % 10 != 0) {
+					if (x1.disabled == false) {
+						x1.onclick();
+						return false;
+					}
+				}
+				else if (farmLevel % 100 != 0) {
+					if (x10.disabled == false) {
+						x10.onclick();
+						return false;
+					}
+				}
+				return true;
+			},
+			roundWire: function() {
+				x1 = timsAutomation.utils.endPhase2.wireBtnx1;
+				x10 = timsAutomation.utils.endPhase2.wireBtnx10;
+				x100 = timsAutomation.utils.endPhase2.wireBtnx100;
+				if (wireDroneLevel % 10 != 0) {
+					if (x1.disabled == false) {
+						x1.onclick();
+						return false;
+					}
+				}
+				else if (wireDroneLevel % 100 != 0) {
+					if (x10.disabled == false) {
+						x10.onclick();
+						return false;
+					}
+				}
+				else if (wireDroneLevel % 1000 != 0) {
+					if (x100.disabled == false) {
+						x100.onclick();
+						return false;
+					}
+				}
+				return true;
+			},
+			roundHarv: function() {
+				x1 = timsAutomation.utils.endPhase2.harvBtnx1;
+				x10 = timsAutomation.utils.endPhase2.harvBtnx10;
+				x100 = timsAutomation.utils.endPhase2.harvBtnx100;
+				if (harvesterLevel % 10 != 0) {
+					if (x1.disabled == false) {
+						x1.onclick();
+						return false;
+					}
+				}
+				else if (harvesterLevel % 100 != 0) {
+					if (x10.disabled == false) {
+						x10.onclick();
+						return false;
+					}
+				}
+				else if (harvesterLevel % 1000 != 0) {
+					if (x100.disabled == false) {
+						x100.onclick();
+						return false;
+					}
+				}
+				return true;
+			},
 			intervalFunc: function() {
 				farmBtn = timsAutomation.utils.endPhase2.farmBtn;
 				wireBtn = timsAutomation.utils.endPhase2.wireBtn;
 				harvBtn = timsAutomation.utils.endPhase2.harvBtn;
 				facBtn = timsAutomation.utils.endPhase2.facBtn;
 				let obj = timsAutomation.utils.endPhase2;
-				if (farmLevel < obj.farmTarget) { if (farmBtn.disabled == false) farmBtn.onclick(); }
-				else if (wireDroneLevel < obj.wireTarget) { if (wireBtn.disabled == false) wireBtn.onclick(); }
-				else if (harvesterLevel < obj.harvTarget) { if (harvBtn.disabled == false) harvBtn.onclick(); }
-				else if (factoryLevel < obj.factTarget) { if (facBtn.disabled == false) facBtn.onclick(); }
+				if (farmLevel < obj.farmTarget) {
+					if (farmBtn.disabled == false && obj.roundFarm() == true) {
+						farmBtn.onclick();
+					}
+				}
+				else if (wireDroneLevel < obj.wireTarget) {
+					if (wireBtn.disabled == false && obj.roundWire() == true) {
+						wireBtn.onclick();
+					}
+				}
+				else if (harvesterLevel < obj.harvTarge) {
+					if (harvBtn.disabled == falset && obj.roundHarv() == true) {
+						harvBtn.onclick();
+					}
+				}
+				else if (factoryLevel < obj.factTarget) {
+					if (facBtn.disabled == false) {
+						facBtn.onclick();
+					}
+				}
 				else {
 					timsAutomation.utils.endPhase2.cancel();
 					timsAutomation.utils.endPhase2.runBtn.disabled = true;
