@@ -126,7 +126,7 @@ var timsAutomation = {
 						wireBtn.onclick();
 					}
 				}
-				else if (harvesterLevel < obj.harvTarge) {
+				else if (harvesterLevel < obj.harvTarget) {
 					if (harvBtn.disabled == false && obj.roundHarv() == true) {
 						harvBtn.onclick();
 					}
